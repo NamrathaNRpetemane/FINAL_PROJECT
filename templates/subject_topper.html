@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Subject Topper</h2>
+<form method="POST">
+    <div class="form-group">
+        <label for="subject">Subject</label>
+        <select class="form-control" id="subject" name="subject" required>
+            <option value="">Select a subject</option>
+            {% for subject in subjects %}
+            <option value="{{ subject }}">{{ subject }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Find Topper</button>
+</form>
+
+{% if topper %}
+<div class="mt-4">
+    <h3>Topper in {{ request.form['subject'] }}</h3>
+    <p><strong>Name:</strong> {{ topper[1] }}</p>
+    <p><strong>Grade:</strong> {{ topper[2] }}</p>
+</div>
+{% endif %}
+
+<a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back to List</a>
+{% endblock %}

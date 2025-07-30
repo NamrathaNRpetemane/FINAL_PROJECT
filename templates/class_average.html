@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Class Average</h2>
+<form method="POST">
+    <div class="form-group">
+        <label for="subject">Subject</label>
+        <select class="form-control" id="subject" name="subject" required>
+            <option value="">Select a subject</option>
+            {% for subject in subjects %}
+            <option value="{{ subject }}">{{ subject }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Calculate Average</button>
+</form>
+
+{% if average is not none %}
+<div class="mt-4">
+    <h3>Class Average for {{ request.form['subject'] }}</h3>
+    <p><strong>Average:</strong> {{ average }}</p>
+</div>
+{% endif %}
+
+<a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Back to List</a>
+{% endblock %}

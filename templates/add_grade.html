@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Add Grade</h2>
+<form method="POST">
+    <div class="form-group">
+        <label for="student_id">Student</label>
+        <select class="form-control" id="student_id" name="student_id" required>
+            <option value="">Select a student</option>
+            {% for student in students %}
+            <option value="{{ student.id }}">{{ student.name }} ({{ student.roll_number }})</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="subject">Subject</label>
+        <input type="text" class="form-control" id="subject" name="subject" required>
+    </div>
+    <div class="form-group">
+        <label for="grade">Grade (0-100)</label>
+        <input type="number" step="0.01" min="0" max="100" class="form-control" id="grade" name="grade" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add Grade</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

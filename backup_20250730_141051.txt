@@ -1,0 +1,14 @@
+ID: 1
+Name: NAMRATHA N R
+Roll Number: 1CG072
+Grades:
+  MATHS: 97.0
+Average: 97.00
+
+ID: 2
+Name: SUPRIYA
+Roll Number: 1CG123
+Grades:
+  Science: 98.0
+Average: 98.00
+
